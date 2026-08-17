@@ -1,0 +1,11 @@
+SOURCE: pbs
+DATE: 27.3.2020
+URL: https://www.pbs.org/newshour/health/u-s-coronavirus-cases-exceed-100000
+---
+NEW YORK — The United States has become the first country to exceed 100,000 confirmed cases of the new coronavirus.
+
+The U.S. reached the grim milestone late Friday afternoon, according to a count by Johns Hopkins University. Deaths in the U.S. topped 1,500 on Friday.
+
+Globally, the count of people with the virus was nearing 600,000.
+
+Italy has the second-most cases with more than 86,000 and China is third with more than 81,000. Italy has the most deaths with 9,134.

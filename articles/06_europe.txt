@@ -1,0 +1,11 @@
+SOURCE: pbs
+DATE: 19.4.2020
+URL: https://www.pbs.org/newshour/world/more-than-1-million-european-cases-of-virus
+---
+BERLIN — The European Center for Disease Control says the continent now has more than 1 million confirmed cases and almost 100,000 deaths from the new coronavirus.
+
+According to a tally posted on the ECDC website Sunday, Spain had the most cases in the region with 191,726, followed by Italy, Germany, Britain and France.
+
+It listed Italy as having the most deaths in Europe, with 23,227, followed by Spain, France, Britain and Belgium.
+
+According to the tally, Europe accounts for almost half the global case load and more than half the total deaths.
