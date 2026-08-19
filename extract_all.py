@@ -53,3 +53,5 @@ data = []  # data for all the articles will be appended to this list
 for article_path in sorted(artices_dir.glob("*.txt")):
     article_data_dict = {article_path.stem: extract_from_article(article_path)}
     data.append(article_data_dict)
+    print(f"{article_path.stem} data added to list.")
+
