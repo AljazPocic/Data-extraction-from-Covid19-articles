@@ -50,10 +50,9 @@ def extract_from_article(file_path):
 if __name__ == "__main__":
     artices_dir = Path("articles")
 
-    data = []  # data for all the articles will be appended to this list
+    data = {}  # data for all the articles will be appended to this dict
 
     for article_path in sorted(artices_dir.glob("*.txt")):
-        article_data_dict = {article_path.stem: extract_from_article(article_path)}
-        data.append(article_data_dict)
-        print(f"{article_path.stem} data added to list.")
+        data[article_path.stem] = extract_from_article(article_path)
+        print(f"{article_path.stem} data added to dict.")
 
