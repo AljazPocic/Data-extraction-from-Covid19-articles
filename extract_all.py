@@ -14,6 +14,9 @@ api_key = os.environ["GROQ_API_KEY"]
 
 
 
+client = instructor.from_groq(Groq(), mode=instructor.Mode.JSON)
+
+
 def extract_from_article(file_path):
     """Fun ment to extract data from article"""
 
@@ -24,8 +27,6 @@ def extract_from_article(file_path):
     prompt = (
         f"Extract the Covid_19 data from article wrapped in >><<: >>{body}<<"
         )
-
-    client = instructor.from_groq(Groq(), mode=instructor.Mode.JSON)
 
     completion = client.chat.completions.create(
         model="openai/gpt-oss-120b",
@@ -46,12 +47,13 @@ def extract_from_article(file_path):
     return completion
 
 
-artices_dir = Path("articles")
+if __name__ == "__main__":
+    artices_dir = Path("articles")
 
-data = []  # data for all the articles will be appended to this list
+    data = []  # data for all the articles will be appended to this list
 
-for article_path in sorted(artices_dir.glob("*.txt")):
-    article_data_dict = {article_path.stem: extract_from_article(article_path)}
-    data.append(article_data_dict)
-    print(f"{article_path.stem} data added to list.")
+    for article_path in sorted(artices_dir.glob("*.txt")):
+        article_data_dict = {article_path.stem: extract_from_article(article_path)}
+        data.append(article_data_dict)
+        print(f"{article_path.stem} data added to list.")
 
