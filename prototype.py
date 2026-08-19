@@ -8,12 +8,12 @@ load_dotenv()
 api_key = os.environ["GROQ_API_KEY"]
 
 
+
 # Schema for extracting data
-from pydantic import BaseModle, Field
+from pydantic import BaseModel, Field
 from typing import List, Optional
 
-
-class CovidData(BaseModle):
+class CovidData(BaseModel):
     location: str = Field(description="The city, region, or area affected")
     number_of_deaths: int = Field(
         description="The number of people dead, beacuse of Covid-19"
@@ -32,21 +32,24 @@ class CovidData(BaseModle):
 
 
 
-
+# Article
 with open("articles/01_china_coronavirus_goes_global.txt", "r", encoding="utf-8") as file:
     article_text = file.read()
 
 prompt = (
-    f"Read the article wraped in >><<. Return data about location, number of deaths, "
-    f"number of sick with covid-19 in JSON. If any of the date is not listed then give it the value None"
-    f">>{article_text}<<"
-)
+    f"Extract the Covid_19 data from article wrapped in >><<: >>{article_text}<<"
+    )
 
+
+
+import instructor
 from groq import Groq
 
-client = Groq()
+client = instructor.from_groq(Groq(), mode=instructor.Mode.JSON)
+
 completion = client.chat.completions.create(
     model="openai/gpt-oss-120b",
+    response_model=CovidData,  # the Pydantic class
     messages=[
       {
         "role": "user", # Think of as "Who is speaking?", Anwser: User
@@ -57,9 +60,6 @@ completion = client.chat.completions.create(
     max_completion_tokens=2048,
     top_p=1,
     reasoning_effort="medium",
-    stream=True,
     stop=None
 )
 
-for chunk in completion:
-    print(chunk.choices[0].delta.content or "", end="")
