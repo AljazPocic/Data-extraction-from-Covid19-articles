@@ -63,3 +63,13 @@ completion = client.chat.completions.create(
     stop=None
 )
 
+# print the whole competion
+print(f"\nExtracted Covid data: \n"
+      f"{completion} \n")
+# or print a specific data point
+print(f"Number of infected: {completion.num_of_infected}")
+
+
+# Store data in a dict or JSON-formatted string
+data_dict = completion.model_dump()
+data_json = completion.model_dump_json()
