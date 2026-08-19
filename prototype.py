@@ -33,11 +33,12 @@ class CovidData(BaseModel):
 
 
 # Article
-with open("articles/01_china_coronavirus_goes_global.txt", "r", encoding="utf-8") as file:
+with open("articles/04_slovenia_konec_epidemije.txt", "r", encoding="utf-8") as file:
     article_text = file.read()
+    header, body = article_text.split("---", maxsplit=1)  # sprem. body ima le vsebino članka, zato jo bom posredoval v prompt
 
 prompt = (
-    f"Extract the Covid_19 data from article wrapped in >><<: >>{article_text}<<"
+    f"Extract the Covid_19 data from article wrapped in >><<: >>{body}<<"
     )
 
 
