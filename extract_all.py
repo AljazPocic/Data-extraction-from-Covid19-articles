@@ -3,15 +3,15 @@ multiple files."""
 
 from schema import CovidData
 import instructor
-from groq import Groq
+from groq import Groq, RateLimitError
 from pathlib import Path
+import time
 
 from dotenv import load_dotenv
 import os 
 
 load_dotenv()
 api_key = os.environ["GROQ_API_KEY"]
-
 
 
 client = instructor.from_groq(Groq(), mode=instructor.Mode.JSON)
@@ -41,7 +41,9 @@ def extract_from_article(file_path):
         max_completion_tokens=2048,
         top_p=1,
         reasoning_effort="medium",
-        stop=None
+        stop=None,
+        max_retries=3
+
     )
 
     return completion
@@ -52,7 +54,23 @@ if __name__ == "__main__":
 
     data = {}  # data for all the articles will be appended to this dict
 
-    for article_path in sorted(artices_dir.glob("*.txt")):
-        data[article_path.stem] = extract_from_article(article_path)
-        print(f"{article_path.stem} data added to dict.")
+    max_attempts = 3
 
+    for article_path in sorted(artices_dir.glob("*.txt")):
+        for attempt in range(1, max_attempts + 1):
+            try:
+                data[article_path.stem] = extract_from_article(article_path)
+                print(f"{article_path.stem} data added to dict.")
+                time.sleep(3)
+                break  # if succesful exit the nested loop
+            except RateLimitError as e:
+                print(f"Attempt {attempt} faild. Reason: {e}")
+                if attempt == max_attempts:
+                    data[article_path.stem] = None
+                else:
+                    print("Trying again")
+                    time.sleep(3)
+
+
+# Run "python3 -i extraxt_all.py" in terminal and try some commands like:
+# data['11_slovenia'], data['11_slovenia'].model_dump()...
