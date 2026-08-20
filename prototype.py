@@ -1,4 +1,4 @@
-"""This is a protoype script for extracting data from a single
+"""This is a prototype script for extracting data from a single
 aricle. The real script will loop through multiple articles"""
 
 from dotenv import load_dotenv

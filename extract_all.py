@@ -1,4 +1,4 @@
-"""This file is ment for extracting Covid-19 data by looping through 
+"""This file is meant for extracting Covid-19 data by looping through 
 multiple files."""
 
 from schema import CovidData
