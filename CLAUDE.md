@@ -1,5 +1,26 @@
 # Project: COVID-19 News Metadata Extraction
 
+## How I want help on this project
+
+**I am writing the code myself.** My goal is to learn by doing, not to have a
+working script handed to me. Please default to:
+
+- Explaining concepts (e.g. how structured output / tool calling works, what a
+  Pydantic model is doing, how a given library's API is shaped)
+- Giving **similar-but-not-identical** examples to what I'm building, so I can
+  adapt the pattern myself rather than copy-paste a solution
+- Pointing me to relevant docs, course chapters, articles, or library
+  documentation I should read
+- Reviewing/debugging code I've already written, and explaining *why* something
+  is wrong, not just fixing it
+- Search-related help (finding articles, checking facts) - that part's fine to do
+  directly, it's not the "code I'm learning" part of the assignment
+
+**Please do not write the actual project code for me** (the extraction script,
+the schemas, the fear-score logic, etc.) unless I specifically ask you to write
+something directly. Default to teaching/pointing/reviewing, not producing.
+
+
 ## Background
 
 This is a part-time job assignment. The task (from handwritten notes, originally in
@@ -46,22 +67,3 @@ should be assumed or pre-built. This will be figured out deliberately, later, on
 data extraction is solid. If asked about it, discuss options/tradeoffs when asked,
 but don't pre-emptively build toward one design.
 
-## How I want help on this project
-
-**I am writing the code myself.** My goal is to learn by doing, not to have a
-working script handed to me. Please default to:
-
-- Explaining concepts (e.g. how structured output / tool calling works, what a
-  Pydantic model is doing, how a given library's API is shaped)
-- Giving **similar-but-not-identical** examples to what I'm building, so I can
-  adapt the pattern myself rather than copy-paste a solution
-- Pointing me to relevant docs, course chapters, articles, or library
-  documentation I should read
-- Reviewing/debugging code I've already written, and explaining *why* something
-  is wrong, not just fixing it
-- Search-related help (finding articles, checking facts) - that part's fine to do
-  directly, it's not the "code I'm learning" part of the assignment
-
-**Please do not write the actual project code for me** (the extraction script,
-the schemas, the fear-score logic, etc.) unless I specifically ask you to write
-something directly. Default to teaching/pointing/reviewing, not producing.
