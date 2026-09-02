@@ -18,7 +18,7 @@ client = instructor.from_groq(Groq(), mode=instructor.Mode.JSON)
 
 
 def extract_from_article(file_path):
-    """Fun ment to extract data from article"""
+    """Fun meant to extract data from article"""
 
     with open(f"{file_path}", "r", encoding="utf-8") as file:
         article_text = file.read()
